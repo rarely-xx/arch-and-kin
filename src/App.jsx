@@ -1,6 +1,6 @@
 // src/App.jsx
 import React, { useState, useMemo, useEffect } from 'react';
-import { Users, Globe, Sparkles, SlidersHorizontal, Plus } from 'lucide-react';
+import { Users, Globe, Sparkles, SlidersHorizontal, Plus, ArrowUpDown } from 'lucide-react';
 import {
   INITIAL_BRANDS,
   INITIAL_PRODUCTS,
@@ -36,6 +36,7 @@ export default function App() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedBrand, setSelectedBrand] = useState('All');
   const [selectedRegion, setSelectedRegion] = useState('All');
+  const [sortBy, setSortBy] = useState('featured'); // 'featured' | 'low-high' | 'high-low' | 'artisans-first' | 'podiatrist-picks'
   const [searchQuery, setSearchQuery] = useState('');
   const [onlyFamilyMatch, setOnlyFamilyMatch] = useState(false);
   const [currency, setCurrency] = useState('NGN');
@@ -99,8 +100,9 @@ export default function App() {
     );
   }, [brands, selectedRegion]);
 
+  // Filtered & Sorted Products
   const filteredProducts = useMemo(() => {
-    return products.filter((p) => {
+    const list = products.filter((p) => {
       const brandObj = brands.find((b) => b.name === p.brand);
       const matchRegion =
         selectedRegion === 'All' || (brandObj && brandObj.region === selectedRegion);
@@ -113,7 +115,27 @@ export default function App() {
         p.archSupport.toLowerCase().includes(searchQuery.toLowerCase());
       return matchRegion && matchCat && matchBrand && matchKin && matchSearch;
     });
-  }, [products, brands, selectedRegion, selectedCategory, selectedBrand, onlyFamilyMatch, searchQuery]);
+
+    // Apply Sorting Rules
+    return list.sort((a, b) => {
+      if (sortBy === 'low-high') return a.priceUSD - b.priceUSD;
+      if (sortBy === 'high-low') return b.priceUSD - a.priceUSD;
+      if (sortBy === 'artisans-first') {
+        const brandA = brands.find((b) => b.name === a.brand);
+        const brandB = brands.find((b) => b.name === b.brand);
+        const isAfA = brandA?.region === 'African' ? 0 : 1;
+        const isAfB = brandB?.region === 'African' ? 0 : 1;
+        return isAfA - isAfB;
+      }
+      if (sortBy === 'podiatrist-picks') {
+        const podBrands = ['Birkenstock', 'Hoka', 'Asics', 'New Balance'];
+        const isPodA = podBrands.includes(a.brand) ? 0 : 1;
+        const isPodB = podBrands.includes(b.brand) ? 0 : 1;
+        return isPodA - isPodB;
+      }
+      return 0; // 'featured' default
+    });
+  }, [products, brands, selectedRegion, selectedCategory, selectedBrand, onlyFamilyMatch, searchQuery, sortBy]);
 
   const handleSizeSelect = (productId, size) => {
     setSelectedSizes((prev) => ({ ...prev, [productId]: size }));
@@ -389,24 +411,23 @@ export default function App() {
                   ))}
                 </div>
 
-                {(selectedBrand !== 'All' ||
-                  selectedCategory !== 'All' ||
-                  selectedRegion !== 'All' ||
-                  onlyFamilyMatch ||
-                  searchQuery) && (
-                  <button
-                    onClick={() => {
-                      setSelectedBrand('All');
-                      setSelectedCategory('All');
-                      setSelectedRegion('All');
-                      setOnlyFamilyMatch(false);
-                      setSearchQuery('');
-                    }}
-                    className="text-xs font-semibold text-terracotta hover:underline"
+                {/* Sort By Dropdown */}
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold uppercase tracking-wider text-espresso/60 flex items-center gap-1">
+                    <ArrowUpDown className="w-3.5 h-3.5" /> Sort:
+                  </span>
+                  <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value)}
+                    className="bg-sand border border-espresso/15 rounded-full px-4 py-1.5 text-xs font-bold text-espresso focus:outline-none focus:border-terracotta"
                   >
-                    Reset All Filters
-                  </button>
-                )}
+                    <option value="featured">✨ Featured Collection</option>
+                    <option value="low-high">💵 Price: Low to High</option>
+                    <option value="high-low">💎 Price: High to Low</option>
+                    <option value="artisans-first">🇳🇬 Nigerian Artisans First</option>
+                    <option value="podiatrist-picks">👟 Podiatrist / High Arch Picks</option>
+                  </select>
+                </div>
               </div>
 
               <div className="flex flex-wrap items-center gap-2 bg-sand/50 p-3.5 rounded-2xl border border-espresso/10">
