@@ -40,6 +40,7 @@ export default function App() {
   const [currency, setCurrency] = useState('NGN');
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [quickViewProduct, setQuickViewProduct] = useState(null);
   const [selectedSizes, setSelectedSizes] = useState({});
   const [isSizeGuideOpen, setIsSizeGuideOpen] = useState(false);
   const [footCm, setFootCm] = useState(18);
@@ -73,7 +74,9 @@ export default function App() {
     badge: 'New Arrival',
     familyMatch: true,
     img: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=80',
-    description: ''
+    description: '',
+    careInstructions: '',
+    fitMeter: 'True to Size'
   });
   const [newBrand, setNewBrand] = useState({
     name: '',
@@ -201,7 +204,10 @@ export default function App() {
       sizes: defaultSizes,
       description:
         newShoe.description.trim() ||
-        'Crafted with heritage materials for everyday family comfort and durability.'
+        'Crafted with heritage materials for everyday family comfort and durability.',
+      careInstructions: 'Wipe clean with a damp soft cloth. Store in a dry place.',
+      fitMeter: 'True to Size',
+      reviews: [{ author: 'Akin O.', rating: 5, comment: 'Just added to our family collection. Excellent quality!' }]
     };
 
     setProducts((prev) => [createdProduct, ...prev]);
@@ -344,7 +350,7 @@ export default function App() {
                     <p className="text-[11px] text-espresso/70">Global Icons</p>
                   </div>
                   <div className="bg-sand/70 p-2.5 rounded-xl">
-                    <p className="font-serif font-bold text-lg text-espresso">2% Off</p>
+                    <p className="font-serif font-bold text-lg text-espresso">10% Off</p>
                     <p className="text-[11px] text-espresso/70">2+ Family Pairs</p>
                   </div>
                 </div>
@@ -449,7 +455,11 @@ export default function App() {
                     className="bg-sand/60 rounded-2xl p-4 border border-espresso/10 flex flex-col justify-between hover:shadow-md transition group"
                   >
                     <div>
-                      <div className="relative overflow-hidden rounded-xl mb-3 bg-oat">
+                      {/* Clickable Image to Open Quick-View */}
+                      <div
+                        onClick={() => setQuickViewProduct(product)}
+                        className="relative overflow-hidden rounded-xl mb-3 bg-oat cursor-pointer"
+                      >
                         <img
                           src={product.img}
                           alt={product.name}
@@ -466,6 +476,11 @@ export default function App() {
                         <span className="absolute bottom-2.5 left-2.5 bg-espresso/85 text-oat text-[10px] font-semibold px-2.5 py-0.5 rounded-full">
                           {product.badge}
                         </span>
+                        <div className="absolute inset-0 bg-espresso/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                          <span className="bg-oat text-espresso text-xs font-bold px-4 py-2 rounded-full shadow-lg">
+                            Quick View &amp; Care 🔍
+                          </span>
+                        </div>
                       </div>
 
                       <div className="flex items-center justify-between gap-1">
@@ -477,7 +492,10 @@ export default function App() {
                         </span>
                       </div>
 
-                      <h3 className="font-serif font-bold text-base mt-1 leading-snug">
+                      <h3
+                        onClick={() => setQuickViewProduct(product)}
+                        className="font-serif font-bold text-base mt-1 leading-snug cursor-pointer hover:text-terracotta transition"
+                      >
                         {product.name}
                       </h3>
                       <p className="text-xs text-espresso/70 mt-1 line-clamp-2">
@@ -535,6 +553,11 @@ export default function App() {
       />
 
       <Modals
+        quickViewProduct={quickViewProduct}
+        setQuickViewProduct={setQuickViewProduct}
+        handleSizeSelect={handleSizeSelect}
+        selectedSizes={selectedSizes}
+        addToCart={addToCart}
         isCartOpen={isCartOpen}
         setIsCartOpen={setIsCartOpen}
         cart={cart}

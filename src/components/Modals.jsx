@@ -1,5 +1,5 @@
 // src/components/Modals.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import {
   X,
   Plus,
@@ -11,11 +11,21 @@ import {
   Smartphone,
   CheckCircle2,
   Printer,
-  RotateCcw
+  RotateCcw,
+  Sparkles,
+  Star,
+  ShieldCheck,
+  Heart
 } from 'lucide-react';
 import { SHIPPING_RATES_USD } from '../data/catalog';
 
 export default function Modals({
+  quickViewProduct,
+  setQuickViewProduct,
+  handleSizeSelect,
+  selectedSizes,
+  addToCart,
+  formatPrice,
   isCartOpen,
   setIsCartOpen,
   cart,
@@ -25,7 +35,6 @@ export default function Modals({
   discountUSD,
   finalTotalUSD,
   shippingFeeUSD,
-  formatPrice,
   isCheckoutOpen,
   setIsCheckoutOpen,
   shippingForm,
@@ -56,8 +65,161 @@ export default function Modals({
   footCm,
   setFootCm
 }) {
+  const [activeTab, setActiveTab] = useState('details'); // 'details' | 'care' | 'reviews'
+
   return (
     <>
+      {/* 0. Product Quick-View & Review Modal */}
+      {quickViewProduct && (
+        <div className="fixed inset-0 bg-espresso/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-oat max-w-2xl w-full rounded-3xl p-6 sm:p-8 border border-espresso/15 shadow-2xl max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between pb-4 border-b border-espresso/10">
+              <span className="text-xs font-bold uppercase tracking-widest text-terracotta">
+                {quickViewProduct.brand} • {quickViewProduct.category}
+              </span>
+              <button
+                onClick={() => setQuickViewProduct(null)}
+                className="p-1.5 rounded-full hover:bg-sand transition"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-6 my-6">
+              <div className="bg-sand rounded-2xl overflow-hidden relative">
+                <img
+                  src={quickViewProduct.img}
+                  alt={quickViewProduct.name}
+                  className="w-full h-72 object-cover"
+                />
+                <span className="absolute top-3 left-3 bg-espresso/85 text-oat text-xs font-bold px-3 py-1 rounded-full">
+                  {quickViewProduct.badge}
+                </span>
+              </div>
+
+              <div className="flex flex-col justify-between space-y-4">
+                <div>
+                  <h2 className="font-serif text-2xl font-bold leading-tight">
+                    {quickViewProduct.name}
+                  </h2>
+                  <p className="text-lg font-bold text-terracotta mt-1">
+                    {formatPrice(quickViewProduct.priceUSD)}
+                  </p>
+                  <p className="text-xs text-espresso/75 mt-2 leading-relaxed">
+                    {quickViewProduct.description}
+                  </p>
+
+                  {/* Fit Meter Badge */}
+                  <div className="mt-4 bg-sand/80 p-3 rounded-xl border border-espresso/10">
+                    <p className="text-[11px] font-bold text-espresso/60 uppercase">Fit &amp; Sizing Meter</p>
+                    <p className="text-xs font-semibold text-pine mt-0.5">
+                      ⚖️ {quickViewProduct.fitMeter || 'True to Size'} ({quickViewProduct.width || 'Standard Fit'})
+                    </p>
+                  </div>
+                </div>
+
+                {/* Size Selector */}
+                <div>
+                  <p className="text-xs font-bold text-espresso/70 mb-1.5">Select Size:</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {quickViewProduct.sizes.map((size) => {
+                      const currentSize = selectedSizes[quickViewProduct.id] || quickViewProduct.sizes[0];
+                      return (
+                        <button
+                          key={size}
+                          onClick={() => handleSizeSelect(quickViewProduct.id, size)}
+                          className={`text-xs px-3 py-1.5 rounded-lg font-semibold transition border ${
+                            currentSize === size
+                              ? 'bg-espresso text-oat border-espresso'
+                              : 'bg-sand text-espresso/80 border-espresso/15 hover:border-espresso'
+                          }`}
+                        >
+                          {size}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => {
+                    addToCart(quickViewProduct);
+                    setQuickViewProduct(null);
+                  }}
+                  className="w-full bg-terracotta hover:bg-espresso text-white py-3 rounded-full font-semibold text-sm transition shadow-sm"
+                >
+                  Add to Family Bag
+                </button>
+              </div>
+            </div>
+
+            {/* Tabbed Footer: Care Instructions vs Community Reviews */}
+            <div className="border-t border-espresso/10 pt-4">
+              <div className="flex gap-2 bg-sand p-1 rounded-full mb-4">
+                <button
+                  onClick={() => setActiveTab('details')}
+                  className={`flex-1 py-2 rounded-full text-xs font-bold transition ${
+                    activeTab === 'details' ? 'bg-espresso text-oat' : 'text-espresso/70'
+                  }`}
+                >
+                  Arch Support &amp; Specs
+                </button>
+                <button
+                  onClick={() => setActiveTab('care')}
+                  className={`flex-1 py-2 rounded-full text-xs font-bold transition ${
+                    activeTab === 'care' ? 'bg-espresso text-oat' : 'text-espresso/70'
+                  }`}
+                >
+                  Care &amp; Cleaning Guide
+                </button>
+                <button
+                  onClick={() => setActiveTab('reviews')}
+                  className={`flex-1 py-2 rounded-full text-xs font-bold transition ${
+                    activeTab === 'reviews' ? 'bg-espresso text-oat' : 'text-espresso/70'
+                  }`}
+                >
+                  Family Reviews ({quickViewProduct.reviews?.length || 1})
+                </button>
+              </div>
+
+              <div className="bg-sand/60 p-4 rounded-2xl text-xs text-espresso/80 min-h-[90px]">
+                {activeTab === 'details' && (
+                  <div className="space-y-1.5">
+                    <p><strong>Arch Support:</strong> {quickViewProduct.archSupport}</p>
+                    <p><strong>Width Profile:</strong> {quickViewProduct.width}</p>
+                    <p><strong>Family Matching:</strong> {quickViewProduct.familyMatch ? 'Available in adult and kids sizing' : 'Adult collection'}</p>
+                  </div>
+                )}
+                {activeTab === 'care' && (
+                  <p className="leading-relaxed">
+                    🧽 <strong>Cleaning Instructions:</strong> {quickViewProduct.careInstructions || 'Wipe clean with a damp cloth. Store in a cool, dry place away from direct sunlight.'}
+                  </p>
+                )}
+                {activeTab === 'reviews' && (
+                  <div className="space-y-2">
+                    {quickViewProduct.reviews && quickViewProduct.reviews.length > 0 ? (
+                      quickViewProduct.reviews.map((rev, idx) => (
+                        <div key={idx} className="border-b border-espresso/10 pb-2 last:border-0">
+                          <div className="flex items-center gap-1 text-amber-600 mb-0.5">
+                            {[...Array(rev.rating)].map((_, i) => (
+                              <Star key={i} className="w-3 h-3 fill-current" />
+                            ))}
+                            <span className="font-bold text-espresso ml-1">{rev.author}</span>
+                          </div>
+                          <p className="text-espresso/80">"{rev.comment}"</p>
+                        </div>
+                      ))
+                    ) : (
+                      <p>No reviews yet for this style. Be the first family to review!</p>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* 1. Slide-Over Shopping Bag */}
       {isCartOpen && (
         <div className="fixed inset-0 bg-espresso/40 backdrop-blur-sm z-50 flex justify-end">
@@ -68,8 +230,8 @@ export default function Modals({
                   <h2 className="font-serif text-xl font-bold">Your Family Bag</h2>
                   <p className="text-xs text-espresso/60">
                     {hasFamilyDiscount
-                      ? '🎉 2% Kin Bundle Discount Unlocked!'
-                      : 'Add 2+ pairs to unlock 2% off your family order'}
+                      ? '🎉 10% Kin Bundle Discount Unlocked!'
+                      : 'Add 2+ pairs to unlock 10% off your family order'}
                   </p>
                 </div>
                 <button onClick={() => setIsCartOpen(false)} className="p-1.5 rounded-full hover:bg-sand">
@@ -108,7 +270,7 @@ export default function Modals({
                 </div>
                 {hasFamilyDiscount && (
                   <div className="flex justify-between text-sm text-pine font-semibold">
-                    <span>Kin Family Bundle (2% Off)</span>
+                    <span>Kin Family Bundle (10% Off)</span>
                     <span>-{formatPrice(discountUSD)}</span>
                   </div>
                 )}
@@ -189,7 +351,7 @@ export default function Modals({
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Lekki Phase 1"
+                  placeholder="e.g. 14 Admiralty Way, Lekki Phase 1"
                   value={shippingForm.address}
                   onChange={(e) => setShippingForm({ ...shippingForm, address: e.target.value })}
                   className="w-full bg-sand border border-espresso/15 rounded-xl px-3.5 py-2.5"
@@ -218,7 +380,7 @@ export default function Modals({
                 </div>
                 {hasFamilyDiscount && (
                   <div className="flex justify-between text-xs text-pine font-semibold">
-                    <span>Kin Family Bundle (2% Off):</span>
+                    <span>Kin Family Bundle (10% Off):</span>
                     <span>-{formatPrice(discountUSD)}</span>
                   </div>
                 )}

@@ -43,34 +43,100 @@ export const INITIAL_BRANDS = [
 ];
 
 export const INITIAL_PRODUCTS = [
-  { id: 101, name: 'Oluwa Classic Leather Crossover Slipper', brand: 'Kene Rapu', category: 'Men', priceUSD: 75, familyMatch: true, archSupport: 'Padded Leather Footbed', width: 'Standard Fit', badge: 'Lagos Icon', sizes: ['EU 40', 'EU 41', 'EU 42', 'EU 43', 'EU 44', 'EU 45'], img: 'https://images.unsplash.com/photo-1621996659490-3275b4d0d951?auto=format&fit=crop&w=700&q=80', description: 'Handcrafted in Lagos using locally sourced Nigerian leather with breathable crossover straps.' },
-  { id: 102, name: 'Eko Braided Square-Toe Slide', brand: '313eko', category: 'Women', priceUSD: 85, familyMatch: false, archSupport: 'Cushioned Heel Pad', width: 'Standard Fit', badge: 'Artisanal Lagos', sizes: ['EU 37', 'EU 38', 'EU 39', 'EU 40', 'EU 41'], img: 'https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?auto=format&fit=crop&w=700&q=80', description: 'Intricately hand-braided leather upper set on a contemporary square-toe sole made in Lagos.' },
-  { id: 103, name: 'Zobo Soft-Strap Everyday Mule', brand: 'elowise.ng', category: 'Women', priceUSD: 55, familyMatch: false, archSupport: 'Pillow Memory Foam', width: 'Standard & Wide', badge: 'Everyday Comfort', sizes: ['EU 36', 'EU 37', 'EU 38', 'EU 39', 'EU 40', 'EU 41'], img: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=80', description: 'Plush tubular straps and cloud-like insole padding built for all-day errands and brunch.' },
-  { id: 104, name: 'Ikoyi Sculpted Wood & Leather Sandal', brand: 'Maliko', category: 'Women', priceUSD: 150, familyMatch: false, archSupport: 'Contoured Wood Arch', width: 'Standard Fit', badge: 'Hand-Carved', sizes: ['EU 37', 'EU 38', 'EU 39', 'EU 40'], img: 'https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=700&q=80', description: 'Artisanal vegetable-tanned leather paired with a hand-carved ergonomic wooden base.' },
-  { id: 105, name: 'Accra-Lagos Heritage Woven Loafer', brand: 'ADJOAA', category: 'Men', priceUSD: 140, familyMatch: true, archSupport: 'Leather Arch Insole', width: 'Standard Fit', badge: 'Pan-African', sizes: ['EU 41', 'EU 42', 'EU 43', 'EU 44', 'EU 45'], img: 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=700&q=80', description: 'Sustainably crafted slip-on loafer celebrating West African basket-weave leatherwork.' },
-  { id: 106, name: 'Aso-Oke Heritage Low-Top Sneaker', brand: 'Ethnik by Tunde Owolabi', category: 'Men', priceUSD: 135, familyMatch: true, archSupport: 'Cushioned Cup Sole', width: 'Standard Fit', badge: 'Yoruba Hand-Loomed', sizes: ['EU 40', 'EU 41', 'EU 42', 'EU 43', 'EU 44', 'EU 45'], img: 'https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=700&q=80', description: 'Authentic hand-woven Yoruba Aso-Oke fabric upper bonded to a durable everyday sneaker sole.' },
-  { id: 107, name: 'Aso-Oke Mini-Me Kid Slip-On', brand: 'Ethnik by Tunde Owolabi', category: 'Kids', priceUSD: 65, familyMatch: true, archSupport: 'Flexible Rubber Sole', width: 'Easy Slip-On', badge: 'Cultural Kin', sizes: ['Kids EU 26', 'Kids EU 28', 'Kids EU 30', 'Kids EU 32'], img: 'https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=700&q=80', description: 'Vibrant hand-woven Aso-Oke slip-on so little ones can match parents at family celebrations.' },
-  { id: 108, name: 'Savannah Two-Tone Resort Sandal', brand: 'Invogue Africa', category: 'Women', priceUSD: 70, familyMatch: true, archSupport: 'Molded Comfort Base', width: 'Adjustable Buckle', badge: 'Resort Ready', sizes: ['EU 36', 'EU 37', 'EU 38', 'EU 39', 'EU 40', 'EU 41'], img: 'https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?auto=format&fit=crop&w=700&q=80', description: 'Tropical-ready leather sandals designed for warm weather walks and coastal family getaways.' },
-  { id: 13, name: 'Asoke Woven Leather Slide', brand: 'Shekudo', category: 'Women', priceUSD: 145, familyMatch: false, archSupport: 'Padded Leather Insole', width: 'Standard Fit', badge: 'Made in Lagos', sizes: ['EU 37', 'EU 38', 'EU 39', 'EU 40', 'EU 41'], img: 'https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?auto=format&fit=crop&w=700&q=80', description: 'Hand-loomed Nigerian Aso-Oke upper paired with locally sourced leather soles crafted in Lagos.' },
-  { id: 1, name: 'Boston Soft Footbed Suede', brand: 'Birkenstock', category: 'Women', priceUSD: 165, familyMatch: true, archSupport: 'High Arch', width: 'Regular & Narrow', badge: 'Bestseller', sizes: ['EU 36', 'EU 37', 'EU 38', 'EU 39', 'EU 40', 'EU 41'], img: 'https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=700&q=80', description: 'Anatomically shaped cork-latex footbed with an extra foam layer for all-day cushioning.' },
-  { id: 2, name: '574 Core Heritage Sneaker', brand: 'New Balance', category: 'Men', priceUSD: 95, familyMatch: true, archSupport: 'Cushioned Neutral', width: 'Standard & Wide', badge: 'Family Classic', sizes: ['EU 41', 'EU 42', 'EU 43', 'EU 44', 'EU 45', 'EU 46'], img: 'https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=700&q=80', description: 'ENCAP midsole cushioning combines lightweight foam with a durable polyurethane rim.' },
-  { id: 6, name: '574 Hook & Loop Playground', brand: 'New Balance', category: 'Kids', priceUSD: 60, familyMatch: true, archSupport: 'Growing Foot Support', width: 'Standard & Wide', badge: 'Easy Strap', sizes: ['Kids EU 25', 'Kids EU 27', 'Kids EU 29', 'Kids EU 31', 'Kids EU 33'], img: 'https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=700&q=80', description: 'Kid-friendly velcro closure paired with durable suede and mesh for nonstop playground days.' },
-  { id: 3, name: 'Wallabee Maple Suede', brand: 'Clarks Originals', category: 'Men', priceUSD: 160, familyMatch: false, archSupport: 'Natural Crepe', width: 'Standard Fit', badge: 'Heritage Icon', sizes: ['EU 40', 'EU 41', 'EU 42', 'EU 43', 'EU 44', 'EU 45'], img: 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=700&q=80', description: 'Clean moccasin silhouette crafted with buttery Steads suede and natural pebble crepe soles.' },
-  { id: 4, name: 'Original Waterproof Sandal', brand: 'Salt-Water', category: 'Kids', priceUSD: 50, familyMatch: true, archSupport: 'Flexible Flat', width: 'Adjustable Strap', badge: 'Machine Washable', sizes: ['Kids EU 24', 'Kids EU 26', 'Kids EU 28', 'Kids EU 30', 'Kids EU 32'], img: 'https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?auto=format&fit=crop&w=700&q=80', description: '100% waterproof urethane-coated leather that molds to the foot after wearing in water.' },
-  { id: 5, name: 'Classic #585 Rustic Brown', brand: 'Blundstone', category: 'Women', priceUSD: 215, familyMatch: true, archSupport: 'SPS Max Comfort', width: 'Roomy Toe Box', badge: 'Weatherproof', sizes: ['EU 36', 'EU 37', 'EU 38', 'EU 39', 'EU 40', 'EU 41'], img: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=80', description: 'Leather-lined Chelsea boot with XRD® Technology in the heel for supreme shock absorption.' },
-  { id: 7, name: 'Campo Chromefree Leather', brand: 'Veja', category: 'Women', priceUSD: 175, familyMatch: true, archSupport: 'Bio-EVA Cushion', width: 'Standard Fit', badge: 'Sustainable', sizes: ['EU 36', 'EU 37', 'EU 38', 'EU 39', 'EU 40'], img: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=80', description: 'Soft bovine leather tanned without chrome or heavy metals, set on an Amazonian rubber sole.' },
-  { id: 9, name: '1461 Smooth Leather Oxford', brand: 'Dr. Martens', category: 'Men', priceUSD: 140, familyMatch: true, archSupport: 'AirWair Cushion', width: 'Generous Fit', badge: 'Built for Life', sizes: ['EU 40', 'EU 41', 'EU 42', 'EU 43', 'EU 44', 'EU 45'], img: 'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=700&q=80', description: '3-eye shoe crafted on the iconic grooved air-cushioned sole with signature yellow welt stitching.' },
-  { id: 11, name: 'Newport H2 Adventure Sandal', brand: 'Keen', category: 'Men', priceUSD: 130, familyMatch: true, archSupport: 'Metatomical Footbed', width: 'Wide Toe Box', badge: 'Trail & Water', sizes: ['EU 41', 'EU 42', 'EU 43', 'EU 44', 'EU 45', 'EU 46'], img: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=700&q=80', description: 'Washable polyester webbing with razor-siped outsoles and signature bumper toe protection.' },
-  { id: 201, name: 'Classic All-Family Clog', brand: 'Crocs', category: 'Kids', priceUSD: 45, familyMatch: true, archSupport: 'Iconic Croslite™', width: 'Roomy Fit', badge: 'Water Friendly', sizes: ['Kids EU 24', 'Kids EU 26', 'Kids EU 28', 'Kids EU 30', 'Kids EU 32'], img: 'https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=700&q=80', description: 'Lightweight, floatable, easy-to-clean EVA foam clogs with pivoting heel straps for active kids.' },
-  { id: 202, name: 'Clifton 9 Everyday Cushion', brand: 'Hoka', category: 'Women', priceUSD: 145, familyMatch: true, archSupport: 'Plush Meta-Rocker', width: 'Regular & Wide', badge: 'Podiatrist Pick', sizes: ['EU 37', 'EU 38', 'EU 39', 'EU 40', 'EU 41'], img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80', description: 'Ultralight compression-molded EVA foam midsole delivering cloud-like shock absorption all day.' },
-  { id: 203, name: 'Hurricane XLT2 River Sandal', brand: 'Teva', category: 'Men', priceUSD: 75, familyMatch: true, archSupport: 'EVA Foam Midsole', width: '3-Point Velcro', badge: 'Recycled Webbing', sizes: ['EU 40', 'EU 41', 'EU 42', 'EU 43', 'EU 44', 'EU 45'], img: 'https://images.unsplash.com/photo-1621996659490-3275b4d0d951?auto=format&fit=crop&w=700&q=80', description: 'Quick-drying straps made from recycled plastic with rugged Durabrasion Rubber™ traction.' },
-  { id: 204, name: 'Peu Cami Ergonomic Leather', brand: 'Camper', category: 'Women', priceUSD: 165, familyMatch: true, archSupport: '360° Stitched Footbed', width: 'Natural Foot Shape', badge: 'Barefoot Feel', sizes: ['EU 36', 'EU 37', 'EU 38', 'EU 39', 'EU 40', 'EU 41'], img: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=80', description: 'Spanish leather casual shoe shaped to follow the natural curve of the foot with elastic laces.' },
-  { id: 205, name: 'Premium 6-Inch Waterproof Boot', brand: 'Timberland', category: 'Men', priceUSD: 198, familyMatch: true, archSupport: 'Anti-Fatigue Footbed', width: 'Standard & Wide', badge: 'Heritage Icon', sizes: ['EU 41', 'EU 42', 'EU 43', 'EU 44', 'EU 45', 'EU 46'], img: 'https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&w=700&q=80', description: 'Seam-sealed waterproof nubuck leather with removable anti-fatigue cones for all-day standing.' },
-  { id: 206, name: 'Chuck 70 Vintage Canvas High', brand: 'Converse', category: 'Women', priceUSD: 90, familyMatch: true, archSupport: 'OrthoLite® Cushioning', width: 'Standard Fit', badge: 'Family Staple', sizes: ['EU 36', 'EU 37', 'EU 38', 'EU 39', 'EU 40', 'EU 41'], img: 'https://images.unsplash.com/photo-1562183241-b937e95585b6?auto=format&fit=crop&w=700&q=80', description: 'Upgraded heavyweight canvas with winged tongue stitching and OrthoLite insole comfort.' },
-  { id: 207, name: 'Classic Slip-On Checkerboard', brand: 'Vans', category: 'Kids', priceUSD: 45, familyMatch: true, archSupport: 'Padded Collar', width: 'Easy Slip-On', badge: 'No Laces Needed', sizes: ['Kids EU 25', 'Kids EU 27', 'Kids EU 29', 'Kids EU 31', 'Kids EU 33'], img: 'https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=700&q=80', description: 'Elastic side accents and signature rubber waffle outsoles for effortless school mornings.' },
-  { id: 208, name: 'GEL-Kayano 30 Stability Walker', brand: 'Asics', category: 'Men', priceUSD: 160, familyMatch: false, archSupport: '4D Guidance Arch', width: 'Standard & Extra Wide', badge: 'Maximum Stability', sizes: ['EU 41', 'EU 42', 'EU 43', 'EU 44', 'EU 45', 'EU 46'], img: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=700&q=80', description: 'PureGEL™ technology and adaptive arch stability engineered for long walks and overpronation.' },
-  { id: 209, name: 'Cloud 5 Speed-Lace Travel Shoe', brand: 'On Running', category: 'Women', priceUSD: 140, familyMatch: false, archSupport: 'CloudTec® Zero-Gravity', width: 'Standard Fit', badge: 'Slip-On Speed Lace', sizes: ['EU 37', 'EU 38', 'EU 39', 'EU 40', 'EU 41'], img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80', description: 'Swiss-engineered CloudTec® sole with bungee speed-lacing so you never have to tie your shoes.' },
-  { id: 210, name: 'Soft 7 Danish Leather Sneaker', brand: 'Ecco', category: 'Men', priceUSD: 160, familyMatch: false, archSupport: 'FLUIDFORM™ Anatomical', width: 'Roomy Inlay Sole', badge: 'Full-Grain Leather', sizes: ['EU 40', 'EU 41', 'EU 42', 'EU 43', 'EU 44', 'EU 45'], img: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=80', description: 'Buttery full-grain leather sneaker with a dimpled anatomical footbed that molds to your stride.' },
-  { id: 211, name: 'Grass Court Waterproof Kid Trainer', brand: 'Bobux', category: 'Kids', priceUSD: 72, familyMatch: false, archSupport: 'Podiatrist Approved', width: 'Double Velcro Strap', badge: 'Healthy Foot Development', sizes: ['Kids EU 22', 'Kids EU 24', 'Kids EU 26', 'Kids EU 28', 'Kids EU 30'], img: 'https://images.unsplash.com/photo-1562183241-b937e95585b6?auto=format&fit=crop&w=700&q=80', description: 'Designed in New Zealand specifically for developing feet with coated water-repellent leather.' },
-  { id: 212, name: 'Jefferson Sugarlite™ Perforated Slip-On', brand: 'Native Shoes', category: 'Kids', priceUSD: 50, familyMatch: true, archSupport: 'Shock-Absorbing EVA', width: 'Featherlight Fit', badge: 'Hose-Off Washable', sizes: ['Kids EU 23', 'Kids EU 25', 'Kids EU 27', 'Kids EU 29', 'Kids EU 31'], img: 'https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=700&q=80', description: 'Odor-resistant, perforated bio-based EVA sneaker that kids can wear in puddles and wash in seconds.' }
+  {
+    id: 101,
+    name: 'Oluwa Classic Leather Crossover Slipper',
+    brand: 'Kene Rapu',
+    category: 'Men',
+    priceUSD: 75,
+    familyMatch: true,
+    archSupport: 'Padded Leather Footbed',
+    width: 'Standard Fit',
+    badge: 'Lagos Icon',
+    sizes: ['EU 40', 'EU 41', 'EU 42', 'EU 43', 'EU 44', 'EU 45'],
+    img: 'https://images.unsplash.com/photo-1621996659490-3275b4d0d951?auto=format&fit=crop&w=700&q=80',
+    description: 'Handcrafted in Lagos using locally sourced Nigerian leather with breathable crossover straps.',
+    careInstructions: 'Wipe clean with a damp soft cloth. Condition leather quarterly with natural balm to maintain suppleness in tropical humidity.',
+    fitMeter: 'True to Size',
+    reviews: [
+      { author: 'Emeka O.', rating: 5, comment: 'Extremely comfortable for weekend outings in Victoria Island. Exceptional Lagos craftsmanship!' },
+      { author: 'Chidi K.', rating: 5, comment: 'Sturdy leather that gets softer the more you wear it.' }
+    ]
+  },
+  {
+    id: 106,
+    name: 'Aso-Oke Heritage Low-Top Sneaker',
+    brand: 'Ethnik by Tunde Owolabi',
+    category: 'Men',
+    priceUSD: 135,
+    familyMatch: true,
+    archSupport: 'Cushioned Cup Sole',
+    width: 'Standard Fit',
+    badge: 'Yoruba Hand-Loomed',
+    sizes: ['EU 40', 'EU 41', 'EU 42', 'EU 43', 'EU 44', 'EU 45'],
+    img: 'https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=700&q=80',
+    description: 'Authentic hand-woven Yoruba Aso-Oke fabric upper bonded to a durable everyday sneaker sole.',
+    careInstructions: 'Spot clean Aso-Oke fabric gently using mild soap and a soft-bristled brush. Do not soak in water or machine wash.',
+    fitMeter: 'True to Size',
+    reviews: [
+      { author: 'Folake B.', rating: 5, comment: 'The Aso-Oke weave is vibrant and gets compliments everywhere I walk in Ikoyi!' }
+    ]
+  },
+  {
+    id: 1,
+    name: 'Boston Soft Footbed Suede',
+    brand: 'Birkenstock',
+    category: 'Women',
+    priceUSD: 165,
+    familyMatch: true,
+    archSupport: 'High Arch',
+    width: 'Regular & Narrow',
+    badge: 'Bestseller',
+    sizes: ['EU 36', 'EU 37', 'EU 38', 'EU 39', 'EU 40', 'EU 41'],
+    img: 'https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=700&q=80',
+    description: 'Anatomically shaped cork-latex footbed with an extra foam layer for all-day cushioning.',
+    careInstructions: 'Use a suede brush to remove dry dirt. Protect with a suede water-repellent spray before wearing.',
+    fitMeter: 'Runs Slightly Wide',
+    reviews: [
+      { author: 'Amina S.', rating: 5, comment: 'Absolute heaven for standing all day in the clinic. Worth every penny.' }
+    ]
+  },
+  {
+    id: 2,
+    name: '574 Core Heritage Sneaker',
+    brand: 'New Balance',
+    category: 'Men',
+    priceUSD: 95,
+    familyMatch: true,
+    archSupport: 'Cushioned Neutral',
+    width: 'Standard & Wide',
+    badge: 'Family Classic',
+    sizes: ['EU 41', 'EU 42', 'EU 43', 'EU 44', 'EU 45', 'EU 46'],
+    img: 'https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=700&q=80',
+    description: 'ENCAP midsole cushioning combines lightweight foam with a durable polyurethane rim.',
+    careInstructions: 'Clean with a soft brush and mild detergent. Air dry away from direct sunlight.',
+    fitMeter: 'True to Size',
+    reviews: [
+      { author: 'Tunde A.', rating: 5, comment: 'Got matching pairs for myself and my 7-year-old. Ultimate weekend shoe!' }
+    ]
+  },
+  {
+    id: 201,
+    name: 'Classic All-Family Clog',
+    brand: 'Crocs',
+    category: 'Kids',
+    priceUSD: 45,
+    familyMatch: true,
+    archSupport: 'Iconic Croslite™',
+    width: 'Roomy Fit',
+    badge: 'Water Friendly',
+    sizes: ['Kids EU 24', 'Kids EU 26', 'Kids EU 28', 'Kids EU 30', 'Kids EU 32'],
+    img: 'https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=700&q=80',
+    description: 'Lightweight, floatable, easy-to-clean EVA foam clogs with pivoting heel straps for active kids.',
+    careInstructions: 'Wash with soap and cold water. Do not expose to high heat or direct sunlight to prevent shrinkage.',
+    fitMeter: 'Roomy Fit',
+    reviews: [
+      { author: 'Ngozi M.', rating: 5, comment: 'Indestructible for playground days in Lekki!' }
+    ]
+  }
 ];
