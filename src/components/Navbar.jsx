@@ -25,11 +25,11 @@ export default function Navbar({
       <div className="bg-pine text-oat text-xs py-2.5 px-4">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center">
           <p className="font-medium">
-            ✨ <strong>Kin Bundle Perk:</strong> Mix &amp; match any 2+ pairs across Men, Women, or Kids for an automatic <strong>10% Family Discount</strong>
+            ✨ <strong>Kin Bundle Perk:</strong> Mix &amp; match any 2+ pairs across Men, Women, or Kids for an automatic <strong>2% Family Discount</strong>
           </p>
           <div className="flex items-center gap-4">
             <span className="hidden md:inline-flex items-center gap-1 text-oat/80">
-              <MapPin className="w-3.5 h-3.5" /> Flagship Studio: Lekki Phase 1, Lagos
+              <MapPin className="w-3.5 h-3.5" /> Flagship Studio: Lagos
             </span>
             <button
               onClick={() => setCurrency(currency === 'NGN' ? 'USD' : 'NGN')}

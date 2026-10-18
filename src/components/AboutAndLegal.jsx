@@ -236,7 +236,7 @@ export default function AboutAndLegal({
               1. Information We Collect From Your Household
             </h2>
             <p>
-              When you shop with <strong>Arch &amp; Kin</strong> or visit our Lekki fitting studio, we collect only the information needed to outfit your family comfortably and deliver your order:
+              When you shop with <strong>Arch &amp; Kin</strong> or visit our Lagos fitting studio, we collect only the information needed to outfit your family comfortably and deliver your order:
             </p>
             <ul className="list-disc pl-5 mt-2 space-y-1 text-xs sm:text-sm">
               <li><strong>Order &amp; Delivery Details:</strong> Your name, street address (Lagos, nationwide, or international), email address, and WhatsApp/mobile number for dispatch riders.</li>
@@ -277,7 +277,7 @@ export default function AboutAndLegal({
               5. Your Rights Under the Nigeria Data Protection Act (NDPA)
             </h2>
             <p>
-              In compliance with the Nigeria Data Protection Act (NDPA) and international privacy regulations, you have the right to request access to, correction of, or permanent deletion of your personal records. Reach our Data &amp; Family Care team anytime at <strong>care@archandkin.com</strong> or visit our studio at Admiralty Way, Lekki Phase 1, Lagos.
+              In compliance with the Nigeria Data Protection Act (NDPA) and international privacy regulations, you have the right to request access to, correction of, or permanent deletion of your personal records. Reach our Data &amp; Family Care team anytime at <strong>archandkin@gmail.com</strong> or visit our studio at Lagos.
             </p>
           </div>
         </div>
@@ -345,7 +345,7 @@ export default function AboutAndLegal({
               3. 2% "Kin Family Bundle" Discount Terms
             </h2>
             <p>
-              Orders containing <strong>2 or more pairs</strong> across any combination of Men’s, Women’s, or Kids’ footwear automatically receive a <strong>2% Kin Bundle Discount</strong> at checkout. Size exchanges on bundle items retain the full 10% discount. If part of a bundle is returned for a refund, reducing the order to a single kept pair, the remaining pair reverts to its standard single-pair price.
+              Orders containing <strong>2 or more pairs</strong> across any combination of Men’s, Women’s, or Kids’ footwear automatically receive a <strong>2% Kin Bundle Discount</strong> at checkout. Size exchanges on bundle items retain the full 2% discount. If part of a bundle is returned for a refund, reducing the order to a single kept pair, the remaining pair reverts to its standard single-pair price.
             </p>
           </div>
 
@@ -366,7 +366,7 @@ export default function AboutAndLegal({
               <li><strong>Lagos Island (Lekki, VI, Ikoyi):</strong> Same-day or next-day dispatch (24–48 hours).</li>
               <li><strong>Lagos Mainland (Ikeja, Surulere, Yaba):</strong> 24–48 hours.</li>
               <li><strong>Abuja, Port Harcourt &amp; Nationwide:</strong> 3–5 business days via DHL or GIG Logistics.</li>
-              <li><strong>Lekki Studio Pickup:</strong> Ready for collection within 3 hours of Paystack confirmation.</li>
+              <li><strong>Lagos Studio Pickup:</strong> Ready for collection within 3 hours of Paystack confirmation.</li>
             </ul>
           </div>
         </div>

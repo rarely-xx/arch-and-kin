@@ -31,7 +31,7 @@ export default function Footer({
               <ShieldCheck className="w-4 h-4" /> 100% Authentic &amp; Artisan Verified
             </div>
             <div className="flex items-center gap-2 text-xs font-semibold text-terracotta">
-              <HeartHandshake className="w-4 h-4" /> Free 30-Day Family Fit Exchanges
+              <HeartHandshake className="w-4 h-4" /> Free 7-Day Family Fit Exchanges
             </div>
           </div>
 
@@ -137,7 +137,7 @@ export default function Footer({
           <p>© 2026 Arch &amp; Kin Footwear Co. All rights reserved. • Secured by Paystack</p>
           <div className="flex flex-wrap items-center gap-6">
             <span className="flex items-center gap-1">
-              <MapPin className="w-3.5 h-3.5 text-terracotta" /> Lekki Phase 1, Lagos, Nigeria
+              <MapPin className="w-3.5 h-3.5 text-terracotta" />Lagos, Nigeria
             </span>
             <button
               onClick={() => navigateToPage('about')}
