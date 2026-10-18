@@ -10,6 +10,7 @@ import {
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import AboutAndLegal from './components/AboutAndLegal';
+import WhatsAppConcierge from './components/WhatsAppConcierge';
 import Modals from './components/Modals';
 
 export default function App() {
@@ -598,6 +599,7 @@ export default function App() {
         footCm={footCm}
         setFootCm={setFootCm}
       />
+      <WhatsAppConcierge />
     </div>
   );
 }
